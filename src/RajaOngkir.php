@@ -9,6 +9,7 @@ use Yafimm\RajaOngkir\HttpClients\BasicClient;
 use Yafimm\RajaOngkir\Resources\Kota;
 use Yafimm\RajaOngkir\Resources\OngkosKirim;
 use Yafimm\RajaOngkir\Resources\Provinsi;
+use Yafimm\RajaOngkir\Resources\Resi;
 use Yafimm\RajaOngkir\SearchDrivers\AbstractDriver;
 use Yafimm\RajaOngkir\SearchDrivers\BasicDriver;
 
@@ -118,5 +119,13 @@ class RajaOngkir
     public function biaya(array $payload): OngkosKirim
     {
         return $this->ongkosKirim($payload);
+    }
+
+        /**
+     * @return \Yafimm\RajaOngkir\Resources\Resi;
+     */
+    public function resi(array $payload): Resi
+    {
+        return new Resi($this->httpClient, $payload);
     }
 }
