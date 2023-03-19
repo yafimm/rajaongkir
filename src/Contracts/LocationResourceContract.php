@@ -1,11 +1,11 @@
 <?php
 
-namespace Kavist\RajaOngkir\Contracts;
+namespace Yafimm\RajaOngkir\Contracts;
 
 interface LocationResourceContract
 {
     /**
-     * @param \Kavist\RajaOngkir\Contracts\SearchDriverContract $searchDriver
+     * @param \Yafimm\RajaOngkir\Contracts\SearchDriverContract $searchDriver
      * @return self
      */
     public function setSearchDriver(SearchDriverContract $searchDriver);

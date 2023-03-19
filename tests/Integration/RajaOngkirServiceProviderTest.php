@@ -1,10 +1,10 @@
 <?php
 
-namespace Kavist\RajaOngkir\Tests\Integration;
+namespace Yafimm\RajaOngkir\Tests\Integration;
 
-use Kavist\RajaOngkir\Exceptions\BasicHttpClientException;
-use Kavist\RajaOngkir\Exceptions\InvalidConfigurationException;
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Exceptions\BasicHttpClientException;
+use Yafimm\RajaOngkir\Exceptions\InvalidConfigurationException;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 class RajaOngkirServiceProviderTest extends TestCase
 {

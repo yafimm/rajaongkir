@@ -1,8 +1,8 @@
 <?php
 
-namespace Kavist\RajaOngkir\HttpClients;
+namespace Yafimm\RajaOngkir\HttpClients;
 
-use Kavist\RajaOngkir\Contracts\HttpClientContract;
+use Yafimm\RajaOngkir\Contracts\HttpClientContract;
 
 abstract class AbstractClient implements HttpClientContract
 {

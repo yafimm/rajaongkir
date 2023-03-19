@@ -1,8 +1,8 @@
 <?php
 
-namespace Kavist\RajaOngkir\SearchDrivers;
+namespace Yafimm\RajaOngkir\SearchDrivers;
 
-use Kavist\RajaOngkir\Contracts\SearchDriverContract;
+use Yafimm\RajaOngkir\Contracts\SearchDriverContract;
 
 abstract class AbstractDriver implements SearchDriverContract
 {

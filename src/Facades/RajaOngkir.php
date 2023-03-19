@@ -1,6 +1,6 @@
 <?php
 
-namespace Kavist\RajaOngkir\Facades;
+namespace Yafimm\RajaOngkir\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

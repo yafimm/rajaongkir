@@ -1,6 +1,6 @@
 <?php
 
-namespace Kavist\RajaOngkir\Contracts;
+namespace Yafimm\RajaOngkir\Contracts;
 
 interface HttpClientContract
 {

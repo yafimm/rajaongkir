@@ -1,13 +1,13 @@
 <?php
 
-namespace Kavist\RajaOngkir\Resources;
+namespace Yafimm\RajaOngkir\Resources;
 
-use Kavist\RajaOngkir\HttpClients\AbstractClient;
+use Yafimm\RajaOngkir\HttpClients\AbstractClient;
 
 class Provinsi extends AbstractLocation
 {
     /**
-     * @param \Kavist\RajaOngkir\HttpClients\AbstractClient $httpClient
+     * @param \Yafimm\RajaOngkir\HttpClients\AbstractClient $httpClient
      */
     public function __construct(AbstractClient $httpClient)
     {

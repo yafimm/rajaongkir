@@ -1,10 +1,10 @@
 <?php
 
-namespace Kavist\RajaOngkir\HttpClients;
+namespace Yafimm\RajaOngkir\HttpClients;
 
 use EngineException;
-use Kavist\RajaOngkir\Exceptions\ApiResponseException;
-use Kavist\RajaOngkir\Exceptions\BasicHttpClientException;
+use Yafimm\RajaOngkir\Exceptions\ApiResponseException;
+use Yafimm\RajaOngkir\Exceptions\BasicHttpClientException;
 
 class BasicClient extends AbstractClient
 {

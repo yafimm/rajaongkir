@@ -1,27 +1,27 @@
 <?php
 
-namespace Kavist\RajaOngkir\Tests\Unit;
+namespace Yafimm\RajaOngkir\Tests\Unit;
 
 use Faker\Factory as FakerFactory;
 use Faker\Generator as FakerGenerator;
-use Kavist\RajaOngkir\Contracts\HttpClientContract;
-use Kavist\RajaOngkir\Contracts\SearchDriverContract;
-use Kavist\RajaOngkir\HttpClients\BasicClient;
-use Kavist\RajaOngkir\RajaOngkir;
-use Kavist\RajaOngkir\SearchDrivers\BasicDriver;
-use Kavist\RajaOngkir\SearchDrivers\FuseDriver;
+use Yafimm\RajaOngkir\Contracts\HttpClientContract;
+use Yafimm\RajaOngkir\Contracts\SearchDriverContract;
+use Yafimm\RajaOngkir\HttpClients\BasicClient;
+use Yafimm\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\SearchDrivers\BasicDriver;
+use Yafimm\RajaOngkir\SearchDrivers\FuseDriver;
 use Mockery;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 class TestCase extends PHPUnitTestCase
 {
-    /** @var \Kavist\RajaOngkir\Contracts\HttpClientContract|\Mockery\Mock */
+    /** @var \Yafimm\RajaOngkir\Contracts\HttpClientContract|\Mockery\Mock */
     protected $httpClient;
 
-    /** @var \Kavist\RajaOngkir\Contracts\SearchDriverContract|\Mockery\Mock */
+    /** @var \Yafimm\RajaOngkir\Contracts\SearchDriverContract|\Mockery\Mock */
     protected $searchDriver;
 
-    /** @var \Kavist\RajaOngkir\RajaOngkir */
+    /** @var \Yafimm\RajaOngkir\RajaOngkir */
     protected $rajaOngkir;
 
     public function setUp(): void

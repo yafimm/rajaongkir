@@ -1,17 +1,17 @@
 <?php
 
-namespace Kavist\RajaOngkir\Resources;
+namespace Yafimm\RajaOngkir\Resources;
 
-use Kavist\RajaOngkir\Contracts\LocationResourceContract;
-use Kavist\RajaOngkir\Contracts\SearchDriverContract;
+use Yafimm\RajaOngkir\Contracts\LocationResourceContract;
+use Yafimm\RajaOngkir\Contracts\SearchDriverContract;
 
 abstract class AbstractLocation extends AbstractResource implements LocationResourceContract
 {
-    /** @var \Kavist\RajaOngkir\Contracts\SearchDriverContract */
+    /** @var \Yafimm\RajaOngkir\Contracts\SearchDriverContract */
     protected $searchDriver;
 
     /**
-     * @param \Kavist\RajaOngkir\Contracts\SearchDriverContract $searchDriver
+     * @param \Yafimm\RajaOngkir\Contracts\SearchDriverContract $searchDriver
      * @return self
      */
     public function setSearchDriver(SearchDriverContract $searchDriver)

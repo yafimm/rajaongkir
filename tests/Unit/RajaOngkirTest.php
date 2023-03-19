@@ -1,6 +1,6 @@
 <?php
 
-namespace Kavist\RajaOngkir\Tests\Unit;
+namespace Yafimm\RajaOngkir\Tests\Unit;
 
 class RajaOngkirTest extends TestCase
 {

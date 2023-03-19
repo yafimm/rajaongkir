@@ -1,6 +1,6 @@
 <?php
 
-namespace Kavist\RajaOngkir\Exceptions;
+namespace Yafimm\RajaOngkir\Exceptions;
 
 class ApiResponseException extends \Exception
 {

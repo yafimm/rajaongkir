@@ -1,13 +1,13 @@
 <?php
 
-namespace Kavist\RajaOngkir\Resources;
+namespace Yafimm\RajaOngkir\Resources;
 
 abstract class AbstractResource
 {
     /** @var array */
     protected $result = [];
 
-    /** @var \Kavist\RajaOngkir\HttpClients\AbstractClient */
+    /** @var \Yafimm\RajaOngkir\HttpClients\AbstractClient */
     protected $httpClient;
 
     public function get(): array

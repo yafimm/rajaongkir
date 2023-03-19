@@ -1,11 +1,11 @@
-![Klien API RajaOngkir untuk PHP](https://rawcdn.githack.com/kavist/rajaongkir/38bae45b88c98e94ecb20a460403e7484c6c2bb4/cover.png)
+![Klien API RajaOngkir untuk PHP](https://rawcdn.githack.com/yafimm/rajaongkir/38bae45b88c98e94ecb20a460403e7484c6c2bb4/cover.png)
 
 # Klien API RajaOngkir untuk PHP
-[![Latest Version](https://img.shields.io/github/v/release/kavist/rajaongkir?label=Release&sort=semver&style=flat-square)](https://github.com/kavist/rajaongkir/releases)
-[![Packagist Version](https://img.shields.io/packagist/v/kavist/rajaongkir?label=Packagist&style=flat-square)](https://packagist.org/packages/kavist/rajaongkir)
-![PHP Version Required](https://img.shields.io/packagist/php-v/kavist/rajaongkir?label=PHP%20Version&style=flat-square)
-[![MIT Licensed](https://img.shields.io/github/license/kavist/rajaongkir?label=License&style=flat-square)](LICENSE)
-[![Build Status](https://img.shields.io/travis/kavist/rajaongkir?label=Travis%20CI%20build&style=flat-square)](https://travis-ci.org/kavist/rajaongkir)
+[![Latest Version](https://img.shields.io/github/v/release/yafimm/rajaongkir?label=Release&sort=semver&style=flat-square)](https://github.com/yafimm/rajaongkir/releases)
+[![Packagist Version](https://img.shields.io/packagist/v/yafimm/rajaongkir?label=Packagist&style=flat-square)](https://packagist.org/packages/yafimm/rajaongkir)
+![PHP Version Required](https://img.shields.io/packagist/php-v/yafimm/rajaongkir?label=PHP%20Version&style=flat-square)
+[![MIT Licensed](https://img.shields.io/github/license/yafimm/rajaongkir?label=License&style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/travis/yafimm/rajaongkir?label=Travis%20CI%20build&style=flat-square)](https://travis-ci.org/yafimm/rajaongkir)
 [![StyleCI](https://styleci.io/repos/212767959/shield)](https://styleci.io/repos/212767959)
 
 Paket pustaka PHP untuk mengakses API RajaOngkir dengan mudah.
@@ -33,13 +33,13 @@ Paket pustaka PHP untuk mengakses API RajaOngkir dengan mudah.
 ## Instalasi
 Gunakan [Composer](https://getcomposer.org) untuk menginstal pustaka ini.
 ```sh
-$ composer require kavist/rajaongkir:^1.1
+$ composer require yafimm/rajaongkir:^1.1
 ```
 Anda juga bisa menambahkan dependensi ke `composer.json`.
 ```json
 {
     "require": {
-        "kavist/rajaongkir": "^1.1"
+        "yafimm/rajaongkir": "^1.1"
     }
 }
 ```
@@ -54,7 +54,7 @@ Jadi, dimohon pengertiannya jika pustaka ini tidak dapat berjalan dengan semesti
 
 ## Konfigurasi
 Untuk pengguna PHP _native_, deklarasikan kunci API sebagai parameter ketika Anda 
-menginstansiasi _class_ `Kavist\RajaOngkir\RajaOngkir`.
+menginstansiasi _class_ `Yafimm\RajaOngkir\RajaOngkir`.
 ```php
 $rajaOngkir = new RajaOngkir('isi_API_key_Anda_disini');
 ```
@@ -65,7 +65,7 @@ RAJAONGKIR_API_KEY=isi_API_key_Anda_disini
 ```
 Anda juga bisa menerbitkan berkas konfigurasi paket ini untuk konfigirasi lebih jauh.
 ```sh
-$ php artisan vendor:publish --provider="Kavist\RajaOngkir\Providers\LaravelServiceProvider"
+$ php artisan vendor:publish --provider="Yafimm\RajaOngkir\Providers\LaravelServiceProvider"
 ```
 
 
@@ -75,13 +75,13 @@ $ php artisan vendor:publish --provider="Kavist\RajaOngkir\Providers\LaravelServ
 Untuk mendapatkan daftar provinsi, gunakan metode `provinsi()->all()`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->provinsi()->all();
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::provinsi()->all();
 ```
@@ -90,13 +90,13 @@ $daftarProvinsi = RajaOngkir::provinsi()->all();
 Untuk mendapatkan provinsi berdasarkan ID, gunakan metode `provinsi()->find(int|string $id)`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->provinsi()->find(11);
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::provinsi()->find(11);
 ```
@@ -105,13 +105,13 @@ $daftarProvinsi = RajaOngkir::provinsi()->find(11);
 Untuk mencari provinsi berdasarkan nama, gunakan metode `provinsi()->search(string $searchTerm)->get()`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->provinsi()->search('ja')->get();
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::provinsi()->search('ja')->get();
 ```
@@ -121,13 +121,13 @@ $daftarProvinsi = RajaOngkir::provinsi()->search('ja')->get();
 Untuk mendapatkan daftar kota/kabupaten, gunakan metode `kota()->all()`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->kota()->all();
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::kota()->all();
 ```
@@ -136,13 +136,13 @@ $daftarProvinsi = RajaOngkir::kota()->all();
 Untuk mendapatkan kota/kabupaten berdasarkan ID, gunakan metode `kota()->find(int|string $id)`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->kota()->find(80);
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::kota()->find(80);
 ```
@@ -151,13 +151,13 @@ $daftarProvinsi = RajaOngkir::kota()->find(80);
 Untuk mendapatkan kota/kabupaten berdasarkan ID provinsinya, gunakan metode `kota()->dariProvinsi(int|string $provinceId)->get()`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->kota()->dariProvinsi(11)->find(80);
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::kota()->dariProvinsi(11)->find(80);
 ```
@@ -166,13 +166,13 @@ $daftarProvinsi = RajaOngkir::kota()->dariProvinsi(11)->find(80);
 Untuk mencari kota/kabupaten berdasarkan nama, gunakan metode `kota()->search(string $searchTerm)->get()`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->kota()->search('su')->get();
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::kota()->search('su')->get();
 ```
@@ -181,13 +181,13 @@ Anda juga bisa mencari kota/kabupaten dari provinsi tertentu dengan memanggil
 metode `dariProvinsi()` sebelum memanggil metode `search()`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->kota()->dariProvinsi(11)->search('su')->get();
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::kota()->dariProvinsi(11)->search('su')->get();
 ```
@@ -196,7 +196,7 @@ $daftarProvinsi = RajaOngkir::kota()->dariProvinsi(11)->search('su')->get();
 Untuk mengambil biaya pengiriman, gunakan metode `ongkosKirim(array $payload)`.
 ```php
 // Native PHP
-use Kavist\RajaOngkir\RajaOngkir;
+use Yafimm\RajaOngkir\RajaOngkir;
 
 $rajaOngkir = new RajaOngkir($apiKey);
 $daftarProvinsi = $rajaOngkir->ongkosKirim([
@@ -207,7 +207,7 @@ $daftarProvinsi = $rajaOngkir->ongkosKirim([
 ]);
 
 // Laravel
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
 
 $daftarProvinsi = RajaOngkir::ongkosKirim([
     'origin'        => 155,     // ID kota/kabupaten asal
@@ -237,7 +237,7 @@ Silakan membaca [tata cara berkontribusi](CONTRIBUTING.md) untuk informasi lengk
 
 ## Kontributor
 - [Ian Mustafa](https://github.com/ianmustafa)
-- [Seluruh Kontributor](https://github.com/kavist/rajaongkir/contributors)
+- [Seluruh Kontributor](https://github.com/yafimm/rajaongkir/contributors)
 
 
 ## Lisensi

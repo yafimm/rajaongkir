@@ -1,6 +1,6 @@
 <?php
 
-namespace Kavist\RajaOngkir\SearchDrivers;
+namespace Yafimm\RajaOngkir\SearchDrivers;
 
 class BasicDriver extends AbstractDriver
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Kavist\RajaOngkir\Tests\Integration;
+namespace Yafimm\RajaOngkir\Tests\Integration;
 
-use Kavist\RajaOngkir\Facades\RajaOngkir;
-use Kavist\RajaOngkir\Providers\LaravelServiceProvider as RajaOngkirServiceProvider;
+use Yafimm\RajaOngkir\Facades\RajaOngkir;
+use Yafimm\RajaOngkir\Providers\LaravelServiceProvider as RajaOngkirServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra

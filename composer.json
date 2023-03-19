@@ -1,18 +1,24 @@
 {
-    "name": "kavist/rajaongkir",
+    "name": "yafimm/rajaongkir",
     "description": "Klien API PHP untuk RajaOngkir",
     "keywords": [
         "rajaongkir",
         "laravel"
     ],
-    "homepage": "https://github.com/kavist/rajaongkir",
+    "homepage": "https://github.com/yafimm/rajaongkir",
     "license": "MIT",
     "authors": [
         {
             "name": "Ian Mustafa",
             "email": "mail@ianmustafa.com",
             "role": "Maintainer"
+        },
+        {
+            "name": "Yafi",
+            "email": "me@yafimm.com",
+            "role": "Maintainer"
         }
+
     ],
     "require": {
         "php": "^7.0"
@@ -27,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Kavist\\RajaOngkir\\": "src"
+            "Yafimm\\RajaOngkir\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kavist\\RajaOngkir\\Tests\\": "tests"
+            "Yafimm\\RajaOngkir\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -45,10 +51,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kavist\\RajaOngkir\\Providers\\LaravelServiceProvider"
+                "Yafimm\\RajaOngkir\\Providers\\LaravelServiceProvider"
             ],
             "aliases": {
-                "RajaOngkir": "Kavist\\RajaOngkir\\Facades\\RajaOngkir"
+                "RajaOngkir": "Yafimm\\RajaOngkir\\Facades\\RajaOngkir"
             }
         }
     }
