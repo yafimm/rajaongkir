@@ -18,7 +18,6 @@
             "email": "me@yafimm.com",
             "role": "Maintainer"
         }
-
     ],
     "require": {
         "php": "^7.0"

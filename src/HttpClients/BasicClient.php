@@ -9,37 +9,37 @@ use Yafimm\RajaOngkir\Exceptions\BasicHttpClientException;
 class BasicClient extends AbstractClient
 {
     /** @var resource */
-    protected $context;
-
-    /** @var array */
-    protected $contextOptions = [
-        'max_redirects' => 5,
-        'timeout' => 30,
-        'protocol_version' => 1.1,
-        'method' => 'GET',
-    ];
+    protected $curl;
 
     public function request(array $payload = []): array
     {
-        $contextOptions = [
-            'method' => $this->httpMethod,
-            'header' => $this->buildHttpHeaders(),
-        ];
+        $this->initialize();
+
+        curl_setopt_array($this->curl, [
+            CURLOPT_CUSTOMREQUEST => $this->httpMethod,
+            CURLOPT_HTTPHEADER => $this->buildHttpHeaders(),
+        ]);
 
         if ('POST' === $this->httpMethod) {
-            $contextOptions['content'] = http_build_query($payload);
+            curl_setopt($this->curl, CURLOPT_POSTFIELDS, http_build_query($payload));
         }
-
-        $this->initialize($contextOptions);
 
         return $this->executeRequest($this->buildUrl($payload));
     }
 
-    protected function initialize(array $contextOptions = [])
+    protected function initialize()
     {
-        $this->context = stream_context_create([
-            'http' => array_merge($this->contextOptions, $contextOptions),
+        $this->curl = curl_init();
+
+        curl_setopt_array($this->curl, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         ]);
+
+        curl_setopt($this->curl, CURLINFO_HEADER_OUT, true);
     }
 
     protected function buildUrl(array $payload = []): string
@@ -53,7 +53,7 @@ class BasicClient extends AbstractClient
         return $url;
     }
 
-    private function buildHttpHeaders(): string
+    private function buildHttpHeaders(): array
     {
         $headers = $this->httpHeaders;
 
@@ -62,10 +62,10 @@ class BasicClient extends AbstractClient
         }
 
         foreach ($headers as $headerKey => $headerValue) {
-            $headers[$headerKey] = $headerKey.':'.$headerValue."\r\n";
+            $headers[$headerKey] = $headerKey.':'.$headerValue;
         }
 
-        return implode($headers);
+        return $headers;
     }
 
     private function executeRequest(string $url): array
@@ -74,17 +74,37 @@ class BasicClient extends AbstractClient
             throw new BasicHttpClientException('Client Error: '.$message, $severity);
         });
 
-        $rawResponse = file_get_contents($url, false, $this->context);
+        curl_setopt($this->curl, CURLOPT_URL, $url); 
+
+        $response = curl_exec($this->curl);
+        $err = curl_error($this->curl);
+
+        curl_close($this->curl);
 
         restore_error_handler();
 
-        $this->stopIfClientReturnsError($rawResponse);
+        if ($err) {
+            return $response;
+        } else {
+            $result = json_decode($response, true);
+            $body   = $result['rajaongkir'];
+            $status = $body['status'];
 
-        $response = json_decode($rawResponse, true)['rajaongkir'];
-
-        $this->stopIfApiReturnsError($response['status']);
-
-        return $response['results'];
+            if ( $status['code'] == 200 ) {
+                if ( isset( $body['results'] ) ) {
+                    if ( count( $body['results'] ) == 1 && isset( $body['results'][0] ) ) {
+                        return $body['results'][0];
+                    } elseif ( count( $body['results'] ) ) {
+                        return $body['results'];
+                    }
+                } elseif ( isset( $body['result'] ) ) {
+                    return $body['result'];
+                }
+            } else {
+                $this->stopIfApiReturnsError($status);
+            }
+        }
+        return [];
     }
 
     private function stopIfClientReturnsError($status)
